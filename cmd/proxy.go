@@ -11,8 +11,8 @@ import (
 )
 
 var backends = []string {
-	"http://localhost:8081",
-	"http://localhost:8082",
+	"http://backend1:8081",
+	"http://backend2:8082",
 }
 
 var backendIndex = 0;
