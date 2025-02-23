@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jetrp
+  labels:
+    app: jetrp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: jetrp
+  template:
+    metadata:
+      labels:
+        app: jetrp
+    spec:
+      containers:
+      - name: jetrp
+        image: sa4dus/jetrp:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: BACKEND1_URL
+          value: "http://backend1:8081"
+        - name: BACKEND2_URL
+          value: "http://backend2:8082"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jetrp
+spec:
+  selector:
+    app: jetrp
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
