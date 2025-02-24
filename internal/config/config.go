@@ -12,7 +12,7 @@ type Config struct {
 
 func LoadConfig() Config {
 	port := getEnv("PROXY_PORT", "8080")
-	backends := strings.Split(getEnv("BACKENDS", "http://backend1:8081, http://backend2:8082"), ",")
+	backends := strings.Split(getEnv("BACKENDS", "http://backend1:8081, http://backend2:8081"), ",")
 
 	return Config{
 		Port:     port,

@@ -8,7 +8,7 @@ docker build -t backend2 -f docker/backend.Dockerfile .
 
 docker push sa4dus/jetrp:latest
 docker push sa4dus/backend1:latest
-docker push sa4dus/backend1:latest
+docker push sa4dus/backend2:latest
 
 docker-compose up --build -d
 
