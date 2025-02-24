@@ -1,0 +1,12 @@
+[Unit]
+Description=Reverse Proxy Service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/proxy
+Restart=always
+User=nobody
+Group=nogroup
+
+[Install]
+WantedBy=multi-user.target
